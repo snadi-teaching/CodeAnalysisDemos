@@ -2,7 +2,7 @@
 
 This repo contains a bunch of demos related to tools for analyzing source code. These are simple tools & use cases just to demonstrate available options and how to get started.
 
-The demos are prepared by [Sarah Nadi](https://sarahnadi.org) and are mainly used in CMPUT 663 at the University of Alberta.
+The demos are prepared by [Sarah Nadi](https://sarahnadi.org) and mainly used for various levels of courses related to Mining Software Repositories and Software Analytics.
 
 # Running the Demos
 
@@ -20,7 +20,9 @@ To run the docker image:
 docker run --name CADemo -it --rm ca-demo:f23 /bin/bash
 ```
 
-Unless otherwise specified, all instructions below are based on running from within the Docker image (which means that all most code for the demos has been compiled already)
+Unless otherwise specified, all instructions for analyzing Java programs below are based on running from within the Docker image (which means that all most code for the demos has been compiled already)
+
+For the Python demo, instructions provided below and no additional dependencies are needed. Just make sure to have Python installed.
 
 ## Using JDT for AST Processing
 
@@ -113,3 +115,15 @@ Boa homepage is [http://boa.cs.iastate.edu](http://boa.cs.iastate.edu) and conta
 2. Run the example on the small dataset (so it finishes quickly)
 3. Go to your list of jobs to view the result
 
+## Python Examples
+
+Check `PythonDemos/analyze_exception_handling.py` which uses the python ast module to parse an AST to find exception handling nodes. It then analyzes the body of the except clause to determine code smells for exception handling.
+
+To run:
+
+```
+cd PythonDemos
+python analyze_exception_handling.py test_program.py
+```
+
+Try passing in a path to a project you are interested in analyzing and see how good that project is at excetion handling.
